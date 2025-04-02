@@ -1,4 +1,4 @@
-package com.hrishi.scribbledash.ui.theme
+package com.hrishi.scribbledash.designsystem
 
 import androidx.compose.ui.graphics.Color
 

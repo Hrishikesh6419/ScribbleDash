@@ -48,6 +48,7 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.material.icons.extended)
+    implementation(project(":core:presentation:designsystem"))
 
     // Testing dependencies
     testImplementation(libs.junit)
@@ -64,4 +65,9 @@ dependencies {
     implementation(libs.timber)
 
     implementation(libs.bundles.koin)
+
+    implementation(projects.core.domain)
+    implementation(projects.core.data)
+    implementation(projects.core.presentation.designsystem)
+    implementation(projects.core.presentation.ui)
 }

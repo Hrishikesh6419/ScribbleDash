@@ -1,10 +1,11 @@
-package com.hrishi.scribbledash.ui.theme
+package com.hrishi.scribbledash.designsystem
 
 import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
 
 private val ColorScheme = lightColorScheme(
     primary = Primary,
@@ -26,6 +27,14 @@ val ColorScheme.success: Color
 
 val ColorScheme.onBackgroundVariant: Color
     get() = ExtendedColors.OnBackgroundVariant
+
+val Typography.headlineXSmall: TextStyle
+    @Composable
+    get() = ExtendedTypography.headlineXSmall
+
+val Typography.labelXLarge: TextStyle
+    @Composable
+    get() = ExtendedTypography.labelXLarge
 
 @Composable
 fun ScribbleDashTheme(
