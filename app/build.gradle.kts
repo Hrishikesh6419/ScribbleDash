@@ -43,4 +43,10 @@ dependencies {
     implementation(projects.core.data)
     implementation(projects.core.presentation.designsystem)
     implementation(projects.core.presentation.ui)
+    implementation(projects.features.home.data)
+    implementation(projects.features.home.domain)
+    implementation(projects.features.home.presentation)
+    implementation(projects.features.oneRoundWonder.data)
+    implementation(projects.features.oneRoundWonder.domain)
+    implementation(projects.features.oneRoundWonder.presentation)
 }
