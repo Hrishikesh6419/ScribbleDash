@@ -1,4 +1,4 @@
-package com.hrishi.scribbledash.components
+package com.hrishi.scribbledash.components.buttons
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
