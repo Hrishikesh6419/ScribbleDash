@@ -28,3 +28,7 @@ val RedoIcon: ImageVector
 val UndoIcon: ImageVector
     @Composable
     get() = ImageVector.vectorResource(R.drawable.ic_undo)
+
+val OneRoundWonderIcon: ImageVector
+    @Composable
+    get() = ImageVector.vectorResource(R.drawable.ic_one_round_wonder)

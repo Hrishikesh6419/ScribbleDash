@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="scribbledash">ScribbleDash</string>
+    <string name="start_drawing">Start drawing!</string>
+    <string name="select_game_mode">Select game mode</string>
+    <string name="one_round_wonder">One Round Wonder</string>
 </resources>
