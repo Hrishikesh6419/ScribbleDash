@@ -140,13 +140,13 @@ private fun GameModeItem(
                     shape = MaterialTheme.appShapes.large
                 )
                 .padding(
-                    vertical = MaterialTheme.spacing.medium,
-                    horizontal = MaterialTheme.spacing.mediumLarge
+                    start = MaterialTheme.spacing.mediumLarge
                 ),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             Text(
+                modifier = Modifier.weight(1f),
                 text = title,
                 style = MaterialTheme.typography.headlineMedium.copy(
                     color = MaterialTheme.colorScheme.onBackground
