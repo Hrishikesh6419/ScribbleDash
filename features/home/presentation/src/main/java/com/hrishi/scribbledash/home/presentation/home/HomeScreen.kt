@@ -12,6 +12,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.hrishi.scribbledash.designsystem.ScribbleDashTheme
 import com.hrishi.scribbledash.designsystem.backgroundGradient
@@ -19,6 +20,7 @@ import com.hrishi.scribbledash.designsystem.spacing
 import com.hrishi.scribbledash.home.presentation.components.BottomBar
 import com.hrishi.scribbledash.home.presentation.components.BottomBarTab
 import com.hrishi.ui.ObserveAsEvents
+import com.scribbledash.home.core.R
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
@@ -65,7 +67,7 @@ private fun HomeScreen(
             Column {
                 Spacer(modifier = Modifier.height(MaterialTheme.spacing.mediumLarge))
                 Text(
-                    "ScribbleDash",
+                    stringResource(R.string.scribbledash),
                     style = MaterialTheme.typography.headlineMedium.copy(
                         color = MaterialTheme.colorScheme.onBackground
                     )
