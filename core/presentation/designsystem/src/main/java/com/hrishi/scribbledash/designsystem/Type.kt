@@ -1,11 +1,12 @@
 package com.hrishi.scribbledash.designsystem
 import androidx.compose.material3.Typography
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.text.ExperimentalTextApi
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.font.FontVariation
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import com.scribbledash.presentation.designsystem.R
 
@@ -159,3 +160,11 @@ object ExtendedTypography {
     val headlineXSmall = HeadlineXSmall
     val labelXLarge = LabelXLarge
 }
+
+val Typography.headlineXSmall: TextStyle
+    @Composable
+    get() = ExtendedTypography.headlineXSmall
+
+val Typography.labelXLarge: TextStyle
+    @Composable
+    get() = ExtendedTypography.labelXLarge

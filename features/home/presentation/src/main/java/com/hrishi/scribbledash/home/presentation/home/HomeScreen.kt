@@ -2,7 +2,10 @@ package com.hrishi.scribbledash.home.presentation.home
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -12,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.hrishi.scribbledash.designsystem.ScribbleDashTheme
 import com.hrishi.scribbledash.designsystem.backgroundGradient
+import com.hrishi.scribbledash.designsystem.spacing
 import com.hrishi.scribbledash.home.presentation.components.BottomBar
 import com.hrishi.scribbledash.home.presentation.components.BottomBarTab
 import com.hrishi.ui.ObserveAsEvents
@@ -56,8 +60,18 @@ private fun HomeScreen(
                 .fillMaxSize()
                 .background(brush = MaterialTheme.colorScheme.backgroundGradient)
                 .padding(paddingValues)
+                .padding(horizontal = MaterialTheme.spacing.medium)
         ) {
-            Text("Home Screen")
+            Column {
+                Spacer(modifier = Modifier.height(MaterialTheme.spacing.mediumLarge))
+                Text(
+                    "ScribbleDash",
+                    style = MaterialTheme.typography.headlineMedium.copy(
+                        color = MaterialTheme.colorScheme.onBackground
+                    )
+                )
+                Spacer(modifier = Modifier.height(MaterialTheme.spacing.mediumLarge))
+            }
         }
     }
 }

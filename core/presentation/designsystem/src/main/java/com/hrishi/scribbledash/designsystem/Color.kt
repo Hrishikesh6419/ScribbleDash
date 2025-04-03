@@ -1,5 +1,7 @@
 package com.hrishi.scribbledash.designsystem
 
+import androidx.compose.material3.ColorScheme
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 
 val Primary = Color(0xFF238CFF)
@@ -21,3 +23,17 @@ object ExtendedColors {
     val BackgroundVariantStart = Color(0xFFFEFAF6)
     val BackgroundVariantEnd = Color(0xFFFFF1E2)
 }
+
+val ColorScheme.success: Color
+    get() = ExtendedColors.Success
+
+val ColorScheme.onBackgroundVariant: Color
+    get() = ExtendedColors.OnBackgroundVariant
+
+val ColorScheme.backgroundGradient: Brush
+    get() = Brush.linearGradient(
+        colors = listOf(
+            ExtendedColors.BackgroundVariantStart,
+            ExtendedColors.BackgroundVariantEnd,
+        )
+    )

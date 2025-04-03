@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
@@ -19,8 +18,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.hrishi.scribbledash.designsystem.ScribbleDashTheme
+import com.hrishi.scribbledash.designsystem.appShapes
+import com.hrishi.scribbledash.designsystem.componentDimensions
+import com.hrishi.scribbledash.designsystem.spacing
 import com.hrishi.scribbledash.designsystem.success
 
 @Composable
@@ -35,14 +36,14 @@ fun ScribbleDashButton(
     Box(
         modifier = modifier
             .fillMaxWidth()
-            .clip(RoundedCornerShape(20.dp))
+            .clip(MaterialTheme.appShapes.extraLarge)
             .background(MaterialTheme.colorScheme.surfaceContainerHigh)
-            .padding(6.dp)
+            .padding(MaterialTheme.componentDimensions.buttonBorderPadding)
     ) {
         Button(
             onClick = onClick,
             enabled = isEnabled,
-            shape = RoundedCornerShape(16.dp),
+            shape = MaterialTheme.appShapes.large,
             colors = ButtonDefaults.buttonColors(
                 containerColor = enabledBackgroundColor,
                 disabledContainerColor = disabledBackgroundColor,
@@ -51,7 +52,7 @@ fun ScribbleDashButton(
             ),
             modifier = Modifier
                 .fillMaxWidth()
-                .heightIn(min = 52.dp)
+                .heightIn(min = MaterialTheme.componentDimensions.buttonMinHeight)
         ) {
             Text(
                 text = text,
@@ -69,14 +70,14 @@ fun ScribbleDashButtonPreview() {
             modifier = Modifier
                 .background(MaterialTheme.colorScheme.background)
                 .fillMaxSize()
-                .padding(16.dp)
+                .padding(MaterialTheme.spacing.medium)
         ) {
             ScribbleDashButton(
                 text = "START!",
                 onClick = {},
             )
 
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(MaterialTheme.spacing.medium))
 
             ScribbleDashButton(
                 text = "START!",
@@ -84,7 +85,7 @@ fun ScribbleDashButtonPreview() {
                 isEnabled = true
             )
 
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(MaterialTheme.spacing.medium))
 
             ScribbleDashButton(
                 text = "START!",
