@@ -10,7 +10,8 @@ import com.hrishi.scribbledash.home.presentation.future.FutureScreenRoot
 import com.hrishi.scribbledash.home.presentation.home.HomeScreenRoot
 
 fun NavGraphBuilder.homeNavGraph(
-    navController: NavHostController
+    navController: NavHostController,
+    onNavigateToOneRoundWonderScreen: () -> Unit
 ) {
     navigation<HomeBaseRoute>(
         startDestination = HomeScreenRoute
@@ -20,9 +21,7 @@ fun NavGraphBuilder.homeNavGraph(
                 onTabSelected = { tab ->
                     handleTabNavigation(navController, tab)
                 },
-                onNavigateToOneRoundWonderScreen = {
-
-                }
+                onNavigateToOneRoundWonderScreen = onNavigateToOneRoundWonderScreen
             )
         }
 

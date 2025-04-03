@@ -5,6 +5,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import com.hrishi.scribbledash.home.presentation.navigation.HomeBaseRoute
 import com.hrishi.scribbledash.home.presentation.navigation.homeNavGraph
+import com.hrishi.scribbledash.presentation.navigation.navigateToOneRoundWonderScreenRoute
+import com.hrishi.scribbledash.presentation.navigation.oneRoundWonderNavGraph
 
 @Composable
 fun NavigationRoot(
@@ -14,6 +16,11 @@ fun NavigationRoot(
         navController = navController,
         startDestination = HomeBaseRoute
     ) {
-        homeNavGraph(navController = navController)
+        homeNavGraph(navController = navController,
+            onNavigateToOneRoundWonderScreen = {
+                navController.navigateToOneRoundWonderScreenRoute()
+            }
+        )
+        oneRoundWonderNavGraph(navController = navController)
     }
 }

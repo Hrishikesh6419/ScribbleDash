@@ -1,5 +1,6 @@
 package com.hrishi.scribbledash.home.presentation.components
 
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
@@ -10,6 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.hrishi.scribbledash.designsystem.ChartIcon
 import com.hrishi.scribbledash.designsystem.HomeIcon
+import com.hrishi.scribbledash.designsystem.componentDimensions
 
 enum class BottomBarTab {
     FUTURE, HOME
@@ -41,7 +43,7 @@ fun BottomBar(
     )
 
     NavigationBar(
-        modifier = modifier,
+        modifier = modifier.heightIn(max = MaterialTheme.componentDimensions.bottomBarHeight),
         containerColor = MaterialTheme.colorScheme.surfaceContainerHigh
     ) {
         items.forEach { item ->
