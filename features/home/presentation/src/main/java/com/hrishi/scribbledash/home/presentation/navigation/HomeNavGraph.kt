@@ -1,13 +1,13 @@
 package com.hrishi.scribbledash.home.presentation.navigation
 
+import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
-import com.hrishi.scribbledash.home.presentation.home.HomeScreenRoot
-import androidx.navigation.NavGraph.Companion.findStartDestination
 import com.hrishi.scribbledash.home.presentation.components.BottomBarTab
 import com.hrishi.scribbledash.home.presentation.future.FutureScreenRoot
+import com.hrishi.scribbledash.home.presentation.home.HomeScreenRoot
 
 fun NavGraphBuilder.homeNavGraph(
     navController: NavHostController
@@ -19,6 +19,9 @@ fun NavGraphBuilder.homeNavGraph(
             HomeScreenRoot(
                 onTabSelected = { tab ->
                     handleTabNavigation(navController, tab)
+                },
+                onNavigateToOneRoundWonderScreen = {
+
                 }
             )
         }
