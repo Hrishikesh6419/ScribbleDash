@@ -5,6 +5,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Typography
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 
@@ -28,6 +29,14 @@ val ColorScheme.success: Color
 
 val ColorScheme.onBackgroundVariant: Color
     get() = ExtendedColors.OnBackgroundVariant
+
+val ColorScheme.backgroundGradient: Brush
+    get() = Brush.linearGradient(
+        colors = listOf(
+            ExtendedColors.BackgroundVariantStart,
+            ExtendedColors.BackgroundVariantEnd,
+        )
+    )
 
 val Typography.headlineXSmall: TextStyle
     @Composable

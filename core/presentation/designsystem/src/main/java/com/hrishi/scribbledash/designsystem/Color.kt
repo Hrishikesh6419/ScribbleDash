@@ -18,4 +18,6 @@ val OnSurfaceVariant = Color(0xFFF6F1EC)
 object ExtendedColors {
     val Success = Color(0xFF0DD280)
     val OnBackgroundVariant = Color(0xFF7F7163)
+    val BackgroundVariantStart = Color(0xFFFEFAF6)
+    val BackgroundVariantEnd = Color(0xFFFFF1E2)
 }

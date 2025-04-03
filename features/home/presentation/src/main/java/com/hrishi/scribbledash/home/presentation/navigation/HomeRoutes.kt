@@ -11,10 +11,10 @@ data object HomeBaseRoute
 data object HomeScreenRoute
 
 @Serializable
-data object LeftDestinationRoute
+data object FutureDestinationRoute
 
 fun NavController.navigateToHomeScreen(navOptions: NavOptionsBuilder.() -> Unit = {}) =
     navigate(HomeScreenRoute, navOptions)
 
-fun NavController.navigateToLeftDestination(navOptions: NavOptionsBuilder.() -> Unit = {}) =
-    navigate(LeftDestinationRoute, navOptions)
+fun NavController.navigateToFutureDestination(navOptions: NavOptionsBuilder.() -> Unit = {}) =
+    navigate(FutureDestinationRoute, navOptions)
