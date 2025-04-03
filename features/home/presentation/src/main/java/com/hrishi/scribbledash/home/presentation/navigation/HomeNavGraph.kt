@@ -5,6 +5,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import com.hrishi.scribbledash.home.presentation.home.HomeScreenRoot
+import com.hrishi.scribbledash.home.presentation.left.LeftScreenRoot
 
 fun NavGraphBuilder.homeNavGraph(
     navController: NavHostController
@@ -14,6 +15,9 @@ fun NavGraphBuilder.homeNavGraph(
     ) {
         composable<HomeScreenRoute> {
             HomeScreenRoot()
+        }
+        composable<LeftDestinationRoute> {
+            LeftScreenRoot()
         }
     }
 }
