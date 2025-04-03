@@ -23,6 +23,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import com.hrishi.scribbledash.components.ScribbleDashTopBar
 import com.hrishi.scribbledash.designsystem.OneRoundWonderIcon
 import com.hrishi.scribbledash.designsystem.ScribbleDashTheme
 import com.hrishi.scribbledash.designsystem.appShapes
@@ -63,6 +64,7 @@ private fun HomeScreen(
 ) {
     Scaffold(
         modifier = modifier,
+        topBar = { ScribbleDashTopBar(title = stringResource(R.string.scribbledash)) },
         bottomBar = {
             BottomBar(
                 selectedTab = BottomBarTab.HOME,
@@ -78,17 +80,8 @@ private fun HomeScreen(
                 .padding(horizontal = MaterialTheme.spacing.medium),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text(
-                text = stringResource(R.string.scribbledash),
-                style = MaterialTheme.typography.headlineMedium.copy(
-                    color = MaterialTheme.colorScheme.onBackground
-                ),
-                modifier = Modifier
-                    .align(Alignment.Start)
-                    .padding(top = MaterialTheme.spacing.mediumLarge)
-            )
 
-            Spacer(modifier = Modifier.height(MaterialTheme.spacing.extraLarge6))
+            Spacer(modifier = Modifier.height(MaterialTheme.spacing.extraLarge5))
 
             Text(
                 text = stringResource(R.string.start_drawing),
