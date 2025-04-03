@@ -5,6 +5,7 @@ import android.os.Build
 import androidx.annotation.RequiresApi
 import com.hrishi.scribbledash.di.appModule
 import com.hrishi.scribbledash.home.presentation.di.homePresentationModule
+import com.hrishi.scribbledash.presentation.di.oneRoundWonderPresentationModule
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 import org.koin.android.ext.koin.androidContext
@@ -28,7 +29,8 @@ class ScribbleDashApp : Application() {
             androidContext(this@ScribbleDashApp)
             modules(
                 appModule,
-                homePresentationModule
+                homePresentationModule,
+                oneRoundWonderPresentationModule
             )
         }
     }

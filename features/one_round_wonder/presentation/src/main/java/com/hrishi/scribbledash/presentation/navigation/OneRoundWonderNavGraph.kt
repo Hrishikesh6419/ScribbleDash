@@ -13,7 +13,11 @@ fun NavGraphBuilder.oneRoundWonderNavGraph(
         startDestination = OneRoundWonderScreenRoute
     ) {
         composable<OneRoundWonderScreenRoute> {
-            OneRoundWonderScreenRoot()
+            OneRoundWonderScreenRoot(
+                onNavigateToDrawingScreen = {
+
+                }
+            )
         }
     }
 }
