@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="start_drawing">Start drawing!</string>
     <string name="difficulty_beginner">Beginner</string>
     <string name="difficulty_challenging">Challenging</string>
     <string name="difficulty_master">Master</string>

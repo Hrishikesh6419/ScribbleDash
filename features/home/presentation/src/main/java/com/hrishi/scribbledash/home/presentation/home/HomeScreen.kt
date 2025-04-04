@@ -34,6 +34,7 @@ import com.hrishi.scribbledash.home.presentation.components.BottomBar
 import com.hrishi.scribbledash.home.presentation.components.BottomBarTab
 import com.hrishi.ui.ObserveAsEvents
 import com.scribbledash.home.core.R
+import com.scribbledash.presentation.ui.R.*
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
@@ -84,7 +85,7 @@ private fun HomeScreen(
             Spacer(modifier = Modifier.height(MaterialTheme.spacing.extraLarge5))
 
             Text(
-                text = stringResource(R.string.start_drawing),
+                text = stringResource(string.start_drawing),
                 style = MaterialTheme.typography.displayMedium,
                 textAlign = TextAlign.Center
             )
