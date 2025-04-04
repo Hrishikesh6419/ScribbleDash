@@ -29,13 +29,14 @@ import com.hrishi.scribbledash.designsystem.OneRoundWonderIcon
 import com.hrishi.scribbledash.designsystem.ScribbleDashTheme
 import com.hrishi.scribbledash.designsystem.appShapes
 import com.hrishi.scribbledash.designsystem.backgroundGradient
+import com.hrishi.scribbledash.designsystem.onBackgroundVariant
 import com.hrishi.scribbledash.designsystem.spacing
 import com.hrishi.scribbledash.designsystem.success
 import com.hrishi.scribbledash.home.presentation.components.BottomBar
 import com.hrishi.scribbledash.home.presentation.components.BottomBarTab
 import com.hrishi.ui.ObserveAsEvents
 import com.scribbledash.home.core.R
-import com.scribbledash.presentation.ui.R.*
+import com.scribbledash.presentation.ui.R.string
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
@@ -89,7 +90,9 @@ private fun HomeScreen(
 
             Text(
                 text = stringResource(string.start_drawing),
-                style = MaterialTheme.typography.displayMedium,
+                style = MaterialTheme.typography.displayMedium.copy(
+                    color = MaterialTheme.colorScheme.onBackground
+                ),
                 textAlign = TextAlign.Center
             )
 
@@ -97,7 +100,9 @@ private fun HomeScreen(
 
             Text(
                 text = stringResource(R.string.select_game_mode),
-                style = MaterialTheme.typography.bodyMedium,
+                style = MaterialTheme.typography.bodyMedium.copy(
+                    color = MaterialTheme.colorScheme.onBackgroundVariant
+                ),
                 textAlign = TextAlign.Center
             )
 

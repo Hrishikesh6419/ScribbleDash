@@ -16,6 +16,9 @@ fun NavGraphBuilder.oneRoundWonderNavGraph(
             OneRoundWonderScreenRoot(
                 onNavigateToDrawingScreen = {
 
+                },
+                onNavigateBack = {
+                    navController.navigateUp()
                 }
             )
         }

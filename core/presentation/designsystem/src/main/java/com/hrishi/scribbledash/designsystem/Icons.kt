@@ -32,3 +32,15 @@ val UndoIcon: ImageVector
 val OneRoundWonderIcon: ImageVector
     @Composable
     get() = ImageVector.vectorResource(R.drawable.ic_one_round_wonder)
+
+val BeginnerIcon: ImageVector
+    @Composable
+    get() = ImageVector.vectorResource(R.drawable.ic_beginner)
+
+val ChallengingIcon: ImageVector
+    @Composable
+    get() = ImageVector.vectorResource(R.drawable.ic_challenging)
+
+val MasterIcon: ImageVector
+    @Composable
+    get() = ImageVector.vectorResource(R.drawable.ic_master)

@@ -27,6 +27,14 @@ class OneRoundWonderViewModel : ViewModel() {
                     )
                 }
             }
+
+            OneRoundWonderAction.OnCloseClick -> {
+                viewModelScope.launch {
+                    _eventChannel.send(
+                        OneRoundWonderEvent.NavigateBack
+                    )
+                }
+            }
         }
     }
 }
