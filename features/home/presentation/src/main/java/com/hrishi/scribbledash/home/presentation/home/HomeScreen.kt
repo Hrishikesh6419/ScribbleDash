@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -64,19 +65,21 @@ private fun HomeScreen(
     onAction: (HomeAction) -> Unit
 ) {
     Scaffold(
-        modifier = modifier,
+        modifier = modifier
+            .background(brush = MaterialTheme.colorScheme.backgroundGradient)
+            .statusBarsPadding(),
         topBar = { ScribbleDashTopBar(title = stringResource(R.string.scribbledash)) },
         bottomBar = {
             BottomBar(
                 selectedTab = BottomBarTab.HOME,
                 onTabSelected = onTabSelected
             )
-        }
+        },
+        containerColor = Color.Transparent
     ) { paddingValues ->
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .background(brush = MaterialTheme.colorScheme.backgroundGradient)
                 .padding(paddingValues)
                 .padding(horizontal = MaterialTheme.spacing.medium),
             horizontalAlignment = Alignment.CenterHorizontally
