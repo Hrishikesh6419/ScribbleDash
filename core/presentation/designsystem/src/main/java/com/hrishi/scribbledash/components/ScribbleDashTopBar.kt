@@ -20,9 +20,9 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
-import androidx.compose.ui.unit.dp
 import com.hrishi.scribbledash.designsystem.CloseIcon
 import com.hrishi.scribbledash.designsystem.ScribbleDashTheme
+import com.hrishi.scribbledash.designsystem.componentDimensions
 import com.hrishi.scribbledash.designsystem.spacing
 
 @Composable
@@ -33,13 +33,13 @@ fun ScribbleDashTopBar(
     titleStyle: TextStyle = MaterialTheme.typography.headlineMedium,
     titleColor: Color = MaterialTheme.colorScheme.onBackground,
     iconTint: Color = MaterialTheme.colorScheme.onSurface,
-    iconSize: Dp = 32.dp,
+    iconSize: Dp = MaterialTheme.componentDimensions.iconSize,
     modifier: Modifier = Modifier
 ) {
     Box(
         modifier = modifier
             .fillMaxWidth()
-            .padding(horizontal = 16.dp)
+            .padding(horizontal = MaterialTheme.spacing.medium)
             .padding(vertical = MaterialTheme.spacing.mediumLarge)
     ) {
         Row(
