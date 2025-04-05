@@ -18,6 +18,7 @@ data class ComponentDimensions(
     val difficultIconSize: Dp = 88.dp,
     val bottomBarHeight: Dp = 88.dp,
     val gameModeTileHeight: Dp = 80.dp,
+    val maxButtonWidth: Dp = 200.dp,
     val canvasSize: Dp = 300.dp,
 )
 

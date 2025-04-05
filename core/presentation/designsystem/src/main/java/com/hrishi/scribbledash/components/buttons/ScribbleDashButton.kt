@@ -29,7 +29,7 @@ fun ScribbleDashButton(
     modifier: Modifier = Modifier,
     text: String,
     isEnabled: Boolean = false,
-    enabledBackgroundColor: Color = MaterialTheme.colorScheme.primary,
+    enabledBackgroundColor: Color = MaterialTheme.colorScheme.success,
     disabledBackgroundColor: Color = MaterialTheme.colorScheme.surfaceContainerLowest,
     onClick: () -> Unit
 ) {
@@ -86,13 +86,6 @@ fun ScribbleDashButtonPreview() {
             )
 
             Spacer(modifier = Modifier.height(MaterialTheme.spacing.medium))
-
-            ScribbleDashButton(
-                text = "START!",
-                onClick = {},
-                isEnabled = true,
-                enabledBackgroundColor = MaterialTheme.colorScheme.success
-            )
         }
     }
 }

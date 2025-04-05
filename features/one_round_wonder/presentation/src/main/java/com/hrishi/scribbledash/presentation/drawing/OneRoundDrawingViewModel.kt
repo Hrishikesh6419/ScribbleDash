@@ -40,6 +40,10 @@ class OneRoundDrawingViewModel(
                     _eventChannel.send(OneRoundDrawingEvent.NavigateBack)
                 }
             }
+
+            OneRoundDrawingAction.OnClearCanvasClicked -> Unit
+            OneRoundDrawingAction.OnRedoClicked -> Unit
+            OneRoundDrawingAction.OnUndoClicked -> Unit
         }
     }
 }

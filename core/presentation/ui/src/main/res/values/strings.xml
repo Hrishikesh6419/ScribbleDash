@@ -4,4 +4,8 @@
     <string name="difficulty_beginner">Beginner</string>
     <string name="difficulty_challenging">Challenging</string>
     <string name="difficulty_master">Master</string>
+    <string name="time_to_draw">Time to draw!</string>
+    <string name="clear_canvas">CLEAR CANVAS!</string>
+    <string name="undo">Undo</string>
+    <string name="redo">Redo</string>
 </resources>

@@ -29,7 +29,6 @@ import com.hrishi.scribbledash.designsystem.spacing
 
 @Composable
 fun ScribbleActionButton(
-    onClick: () -> Unit,
     icon: ImageVector,
     contentDescription: String,
     isEnabled: Boolean = true,
@@ -39,7 +38,8 @@ fun ScribbleActionButton(
     disabledIconColor: Color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.4f),
     containerColor: Color = MaterialTheme.colorScheme.surfaceContainerLow,
     pressedContainerColor: Color = MaterialTheme.colorScheme.surfaceContainerLowest,
-    disabledContainerColor: Color = MaterialTheme.colorScheme.surfaceContainerLow.copy(alpha = 0.4f)
+    disabledContainerColor: Color = MaterialTheme.colorScheme.surfaceContainerLow.copy(alpha = 0.4f),
+    onClick: () -> Unit,
 ) {
     val interactionSource = remember { MutableInteractionSource() }
     val isPressed by interactionSource.collectIsPressedAsState()
