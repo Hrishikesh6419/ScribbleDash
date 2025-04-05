@@ -20,7 +20,7 @@ data class ComponentDimensions(
     val bottomBarHeight: Dp = 88.dp,
     val gameModeTileHeight: Dp = 80.dp,
     val maxButtonWidth: Dp = 200.dp,
-    val canvasSize: Dp = 300.dp,
+    val canvasSize: Dp = 350.dp,
 )
 
 val LocalComponentDimensions = staticCompositionLocalOf { ComponentDimensions() }

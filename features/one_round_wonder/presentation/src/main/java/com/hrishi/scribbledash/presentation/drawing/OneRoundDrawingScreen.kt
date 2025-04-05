@@ -2,7 +2,6 @@ package com.hrishi.scribbledash.presentation.drawing
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -20,10 +19,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.hrishi.scribbledash.components.ScribbleDashTopBar
 import com.hrishi.scribbledash.components.buttons.ScribbleActionButton
@@ -35,6 +32,7 @@ import com.hrishi.scribbledash.designsystem.UndoIcon
 import com.hrishi.scribbledash.designsystem.backgroundGradient
 import com.hrishi.scribbledash.designsystem.componentDimensions
 import com.hrishi.scribbledash.designsystem.spacing
+import com.hrishi.scribbledash.presentation.components.DrawingCanvas
 import com.hrishi.ui.ObserveAsEvents
 import com.scribbledash.presentation.ui.R.string
 import org.koin.androidx.compose.koinViewModel
@@ -97,19 +95,7 @@ fun OneRoundWonderDrawingScreen(
 
             Spacer(modifier = Modifier.height(MaterialTheme.spacing.extraLarge))
 
-            // TODO: Canvas placeholder - this will be replaced with actual drawing functionality later
-            Box(
-                modifier = Modifier
-                    .size(350.dp)
-                    .background(color = Color.White),
-                contentAlignment = Alignment.Center
-            ) {
-                Text(
-                    "Canvas",
-                    style = MaterialTheme.typography.bodyLarge,
-                    color = MaterialTheme.colorScheme.onSurface
-                )
-            }
+            DrawingCanvas(modifier = Modifier.size(MaterialTheme.componentDimensions.canvasSize))
 
             Spacer(modifier = Modifier.weight(1f))
 
