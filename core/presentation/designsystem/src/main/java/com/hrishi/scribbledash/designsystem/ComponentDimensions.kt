@@ -15,6 +15,7 @@ data class ComponentDimensions(
     val buttonBorderPadding: Dp = 6.dp,
 
     val borderWidth: Dp = 1.dp,
+    val drawingStokeWidth: Dp = 3.dp,
     val iconSize: Dp = 32.dp,
     val smallShadow: Dp = 2.dp,
     val difficultIconSize: Dp = 88.dp,
