@@ -22,6 +22,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.hrishi.scribbledash.components.DrawingCanvas
 import com.hrishi.scribbledash.components.ScribbleDashTopBar
 import com.hrishi.scribbledash.components.buttons.ScribbleActionButton
 import com.hrishi.scribbledash.components.buttons.ScribbleDashButton
@@ -32,7 +33,7 @@ import com.hrishi.scribbledash.designsystem.UndoIcon
 import com.hrishi.scribbledash.designsystem.backgroundGradient
 import com.hrishi.scribbledash.designsystem.componentDimensions
 import com.hrishi.scribbledash.designsystem.spacing
-import com.hrishi.scribbledash.presentation.components.DrawingCanvas
+import com.hrishi.scribbledash.presentation.mappers.toDrawingPath
 import com.hrishi.ui.ObserveAsEvents
 import com.scribbledash.presentation.ui.R.string
 import org.koin.androidx.compose.koinViewModel
@@ -95,7 +96,14 @@ fun OneRoundWonderDrawingScreen(
 
             Spacer(modifier = Modifier.height(MaterialTheme.spacing.extraLarge))
 
-            DrawingCanvas(modifier = Modifier.size(MaterialTheme.componentDimensions.canvasSize))
+            DrawingCanvas(
+                modifier = Modifier.size(MaterialTheme.componentDimensions.canvasSize),
+                paths = uiState.paths.map { it.toDrawingPath() },
+                currentPath = uiState.currentPath?.toDrawingPath(),
+                onDrawStart = { onAction(OneRoundDrawingAction.OnNewPathStart) },
+                onDraw = { offset -> onAction(OneRoundDrawingAction.OnDraw(offset)) },
+                onDrawEnd = { onAction(OneRoundDrawingAction.OnPathEnd) }
+            )
 
             Spacer(modifier = Modifier.weight(1f))
 
