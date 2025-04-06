@@ -1,6 +1,7 @@
 package com.hrishi.scribbledash.home.presentation.components
 
 import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
@@ -50,6 +51,7 @@ fun BottomBar(
             NavigationBarItem(
                 icon = {
                     Icon(
+                        modifier = Modifier.size(MaterialTheme.componentDimensions.bottomBarIconSize),
                         imageVector = item.icon,
                         contentDescription = item.contentDescription
                     )
