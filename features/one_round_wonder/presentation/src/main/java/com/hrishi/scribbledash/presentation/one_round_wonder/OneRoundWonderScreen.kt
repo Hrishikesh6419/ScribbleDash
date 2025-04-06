@@ -153,9 +153,9 @@ private fun DifficultyOptionsRow(
         horizontalArrangement = Arrangement.Center
     ) {
         items(difficultySettings) { difficulty ->
-            val verticalOffset = when (difficulty) {
-                DifficultySettingUi.CHALLENGING -> MaterialTheme.spacing.medium * -1
-                else -> MaterialTheme.spacing.none
+            val topPadding = when (difficulty) {
+                DifficultySettingUi.CHALLENGING -> MaterialTheme.spacing.none
+                else -> MaterialTheme.spacing.medium
             }
 
             val endPadding = when (difficulty) {
@@ -165,8 +165,7 @@ private fun DifficultyOptionsRow(
 
             DifficultySettingItem(
                 modifier = Modifier
-                    .offset(y = verticalOffset)
-                    .padding(end = endPadding),
+                    .padding(top = topPadding, end = endPadding),
                 difficulty = difficulty,
                 onClick = onDifficultySelected
             )

@@ -20,7 +20,7 @@ data class Spacing(
     val extraLarge: Dp = 32.dp,
     val extraLarge2: Dp = 38.dp,
     val extraLarge3: Dp = 48.dp,
-    val extraLarge4: Dp = 64.dp,
+    val extraLarge4: Dp = 54.dp,
     val extraLarge5: Dp = 80.dp,
     val extraLarge6: Dp = 100.dp,
     val extraLarge7: Dp = 120.dp,
