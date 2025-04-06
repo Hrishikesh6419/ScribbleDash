@@ -14,7 +14,8 @@ data class AppShapes(
     val medium: RoundedCornerShape = RoundedCornerShape(8.dp),
     val large: RoundedCornerShape = RoundedCornerShape(16.dp),
     val extraLarge: RoundedCornerShape = RoundedCornerShape(20.dp),
-    val extraLarge2: RoundedCornerShape = RoundedCornerShape(36.dp),
+    val extraLarge2: RoundedCornerShape = RoundedCornerShape(28.dp),
+    val extraLarge3: RoundedCornerShape = RoundedCornerShape(36.dp),
     val canvas: RoundedCornerShape = RoundedCornerShape(12.dp)
 )
 
