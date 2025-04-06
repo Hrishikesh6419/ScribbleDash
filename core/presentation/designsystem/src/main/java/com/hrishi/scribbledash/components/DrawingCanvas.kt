@@ -47,6 +47,7 @@ fun DrawingCanvas(
     strokeWidth: Dp = MaterialTheme.componentDimensions.drawingStokeWidth,
     gridLineWidth: Dp = MaterialTheme.componentDimensions.borderWidth,
     cornerShape: RoundedCornerShape = MaterialTheme.appShapes.extraLarge2,
+    innerShape: RoundedCornerShape = RoundedCornerShape(MaterialTheme.spacing.extraLarge),
     innerPadding: Dp = MaterialTheme.spacing.smallMedium,
     onDrawStart: () -> Unit = {},
     onDraw: (Offset) -> Unit = {},
@@ -66,18 +67,18 @@ fun DrawingCanvas(
         Box(
             modifier = Modifier
                 .matchParentSize()
-                .clip(MaterialTheme.appShapes.medium)
+                .clip(innerShape)
                 .border(
                     width = gridLineWidth,
                     color = gridColor,
-                    shape = RoundedCornerShape(MaterialTheme.spacing.extraLarge)
+                    shape = innerShape
                 )
                 .background(backgroundColor)
         ) {
             Canvas(
                 modifier = Modifier
                     .matchParentSize()
-                    .clip(MaterialTheme.appShapes.medium)
+                    .clip(innerShape)
                     .pointerInput(true) {
                         detectDragGestures(
                             onDragStart = { onDrawStart() },
