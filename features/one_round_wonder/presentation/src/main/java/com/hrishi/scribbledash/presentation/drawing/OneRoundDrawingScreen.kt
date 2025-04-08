@@ -109,7 +109,10 @@ fun OneRoundWonderDrawingScreen(
 
             Row(
                 modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(MaterialTheme.spacing.smallMedium),
+                horizontalArrangement = Arrangement.spacedBy(
+                    space = MaterialTheme.spacing.smallMedium,
+                    alignment = Alignment.CenterHorizontally
+                ),
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 ScribbleActionButton(
@@ -125,8 +128,6 @@ fun OneRoundWonderDrawingScreen(
                     isEnabled = uiState.isRedoEnabled,
                     onClick = { onAction(OneRoundDrawingAction.OnRedoClicked) }
                 )
-
-                Spacer(modifier = Modifier.weight(1f))
 
                 ScribbleDashButton(
                     modifier = Modifier.widthIn(max = MaterialTheme.componentDimensions.maxButtonWidth),
