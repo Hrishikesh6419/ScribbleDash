@@ -6,6 +6,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import com.hrishi.scribbledash.presentation.drawing.OneRoundWonderDrawingScreenRoot
 import com.hrishi.scribbledash.presentation.one_round_wonder.OneRoundWonderScreenRoot
+import com.hrishi.ui.animation.NavigationAnimations
 
 fun NavGraphBuilder.oneRoundWonderNavGraph(
     navController: NavHostController,
@@ -13,7 +14,12 @@ fun NavGraphBuilder.oneRoundWonderNavGraph(
     navigation<OneRoundWonderBaseRoute>(
         startDestination = OneRoundWonderScreenRoute
     ) {
-        composable<OneRoundWonderScreenRoute> {
+        composable<OneRoundWonderScreenRoute>(
+            enterTransition = NavigationAnimations.enterFromRight,
+            exitTransition = NavigationAnimations.exitToLeft,
+            popEnterTransition = NavigationAnimations.enterFromLeft,
+            popExitTransition = NavigationAnimations.exitToRight
+        ) {
             OneRoundWonderScreenRoot(
                 onNavigateToDrawingScreen = {
                     navController.navigateToOneRoundWonderDrawingScreenRoute(it)
@@ -23,7 +29,12 @@ fun NavGraphBuilder.oneRoundWonderNavGraph(
                 }
             )
         }
-        composable<OneRoundWonderDrawingScreenRoute> {
+        composable<OneRoundWonderDrawingScreenRoute>(
+            enterTransition = NavigationAnimations.enterFromRight,
+            exitTransition = NavigationAnimations.exitToLeft,
+            popEnterTransition = NavigationAnimations.enterFromLeft,
+            popExitTransition = NavigationAnimations.exitToRight
+        ) {
             OneRoundWonderDrawingScreenRoot(
                 onNavigateBack = {
                     navController.navigateUp()

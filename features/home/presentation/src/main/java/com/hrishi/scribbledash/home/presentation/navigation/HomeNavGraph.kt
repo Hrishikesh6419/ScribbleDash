@@ -8,6 +8,7 @@ import androidx.navigation.navigation
 import com.hrishi.scribbledash.home.presentation.components.BottomBarTab
 import com.hrishi.scribbledash.home.presentation.future.FutureScreenRoot
 import com.hrishi.scribbledash.home.presentation.home.HomeScreenRoot
+import com.hrishi.ui.animation.NavigationAnimations
 
 fun NavGraphBuilder.homeNavGraph(
     navController: NavHostController,
@@ -16,7 +17,12 @@ fun NavGraphBuilder.homeNavGraph(
     navigation<HomeBaseRoute>(
         startDestination = HomeScreenRoute
     ) {
-        composable<HomeScreenRoute> {
+        composable<HomeScreenRoute>(
+            enterTransition = NavigationAnimations.enterFromLeft,
+            exitTransition = NavigationAnimations.exitToLeft,
+            popEnterTransition = NavigationAnimations.enterFromRight,
+            popExitTransition = NavigationAnimations.exitToRight
+        ) {
             HomeScreenRoot(
                 onTabSelected = { tab ->
                     handleTabNavigation(navController, tab)
@@ -25,7 +31,12 @@ fun NavGraphBuilder.homeNavGraph(
             )
         }
 
-        composable<FutureDestinationRoute> {
+        composable<FutureDestinationRoute>(
+            enterTransition = NavigationAnimations.enterFromRight,
+            exitTransition = NavigationAnimations.exitToRight,
+            popEnterTransition = NavigationAnimations.enterFromLeft,
+            popExitTransition = NavigationAnimations.exitToLeft
+        ) {
             FutureScreenRoot(
                 onTabSelected = { tab ->
                     handleTabNavigation(navController, tab)
