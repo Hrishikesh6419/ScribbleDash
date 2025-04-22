@@ -1,18 +1,19 @@
 package com.hrishi.scribbledash.home.presentation.navigation
 
-import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavGraphBuilder
-import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
-import com.hrishi.scribbledash.home.presentation.components.BottomBarTab
-import com.hrishi.scribbledash.home.presentation.future.FutureScreenRoot
+import com.hrishi.scribbledash.domain.model.common.DifficultySetting
+import com.hrishi.scribbledash.home.presentation.drawing.OneRoundWonderDrawingScreenRoot
 import com.hrishi.scribbledash.home.presentation.home.HomeScreenRoot
+import com.hrishi.scribbledash.home.presentation.left.FutureScreenRoot
+import com.hrishi.scribbledash.home.presentation.one_round_wonder.OneRoundWonderScreenRoot
 import com.hrishi.ui.animation.NavigationAnimations
 
 fun NavGraphBuilder.homeNavGraph(
-    navController: NavHostController,
-    onNavigateToOneRoundWonderScreen: () -> Unit
+    onNavigateToOneRoundWonderScreen: () -> Unit,
+    onNavigateToDrawingScreen: (DifficultySetting) -> Unit,
+    onNavigateBack: () -> Unit
 ) {
     navigation<HomeBaseRoute>(
         startDestination = HomeScreenRoute
@@ -24,46 +25,46 @@ fun NavGraphBuilder.homeNavGraph(
             popExitTransition = NavigationAnimations.exitToRight
         ) {
             HomeScreenRoot(
-                onTabSelected = { tab ->
-                    handleTabNavigation(navController, tab)
-                },
                 onNavigateToOneRoundWonderScreen = onNavigateToOneRoundWonderScreen
             )
         }
 
+        composable<OneRoundWonderScreenRoute>(
+            enterTransition = NavigationAnimations.enterFromRight,
+            exitTransition = NavigationAnimations.exitToLeft,
+            popEnterTransition = NavigationAnimations.enterFromLeft,
+            popExitTransition = NavigationAnimations.exitToRight
+        ) {
+            OneRoundWonderScreenRoot(
+                onNavigateToDrawingScreen = onNavigateToDrawingScreen,
+                onNavigateBack = onNavigateBack
+            )
+        }
+
+        composable<OneRoundWonderDrawingScreenRoute>(
+            enterTransition = NavigationAnimations.enterFromRight,
+            exitTransition = NavigationAnimations.exitToLeft,
+            popEnterTransition = NavigationAnimations.enterFromLeft,
+            popExitTransition = NavigationAnimations.exitToRight
+        ) {
+            OneRoundWonderDrawingScreenRoot(
+                onNavigateBack = onNavigateBack
+            )
+        }
+    }
+}
+
+fun NavGraphBuilder.futureNavGraph() {
+    navigation<FutureDestinationBaseRoute>(
+        startDestination = FutureDestinationRoute
+    ) {
         composable<FutureDestinationRoute>(
             enterTransition = NavigationAnimations.enterFromRight,
             exitTransition = NavigationAnimations.exitToRight,
             popEnterTransition = NavigationAnimations.enterFromLeft,
             popExitTransition = NavigationAnimations.exitToLeft
         ) {
-            FutureScreenRoot(
-                onTabSelected = { tab ->
-                    handleTabNavigation(navController, tab)
-                }
-            )
-        }
-    }
-}
-
-private fun handleTabNavigation(
-    navController: NavHostController,
-    tab: BottomBarTab
-) {
-    when (tab) {
-        BottomBarTab.HOME -> navController.navigateToHomeScreen {
-            popUpTo(navController.graph.findStartDestination().id) {
-                saveState = true
-            }
-            launchSingleTop = true
-            restoreState = true
-        }
-        BottomBarTab.FUTURE -> navController.navigateToFutureDestination {
-            popUpTo(navController.graph.findStartDestination().id) {
-                saveState = true
-            }
-            launchSingleTop = true
-            restoreState = true
+            FutureScreenRoot()
         }
     }
 }

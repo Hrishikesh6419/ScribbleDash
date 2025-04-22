@@ -1,4 +1,4 @@
-package com.hrishi.scribbledash.presentation.one_round_wonder
+package com.hrishi.scribbledash.home.presentation.one_round_wonder
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
@@ -41,7 +40,7 @@ import com.hrishi.scribbledash.designsystem.componentDimensions
 import com.hrishi.scribbledash.designsystem.onBackgroundVariant
 import com.hrishi.scribbledash.designsystem.spacing
 import com.hrishi.scribbledash.domain.model.common.DifficultySetting
-import com.hrishi.scribbledash.presentation.model.DifficultySettingUi
+import com.hrishi.scribbledash.home.presentation.model.DifficultySettingUi
 import com.hrishi.ui.ObserveAsEvents
 import com.scribbledash.presentation.ui.R.string
 import org.koin.androidx.compose.koinViewModel

@@ -1,7 +1,7 @@
-package com.hrishi.scribbledash.presentation.mappers
+package com.hrishi.scribbledash.home.presentation.mappers
 
 import com.hrishi.scribbledash.components.DrawingPath
-import com.hrishi.scribbledash.presentation.drawing.PathData
+import com.hrishi.scribbledash.home.presentation.drawing.PathData
 
 fun PathData.toDrawingPath() = DrawingPath(
     id = id,

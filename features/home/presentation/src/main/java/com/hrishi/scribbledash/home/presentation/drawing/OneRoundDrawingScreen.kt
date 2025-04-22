@@ -1,4 +1,4 @@
-package com.hrishi.scribbledash.presentation.drawing
+package com.hrishi.scribbledash.home.presentation.drawing
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -33,7 +33,7 @@ import com.hrishi.scribbledash.designsystem.UndoIcon
 import com.hrishi.scribbledash.designsystem.backgroundGradient
 import com.hrishi.scribbledash.designsystem.componentDimensions
 import com.hrishi.scribbledash.designsystem.spacing
-import com.hrishi.scribbledash.presentation.mappers.toDrawingPath
+import com.hrishi.scribbledash.home.presentation.mappers.toDrawingPath
 import com.hrishi.ui.ObserveAsEvents
 import com.scribbledash.presentation.ui.R.string
 import org.koin.androidx.compose.koinViewModel

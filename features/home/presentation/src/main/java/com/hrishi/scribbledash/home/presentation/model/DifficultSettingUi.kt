@@ -1,4 +1,4 @@
-package com.hrishi.scribbledash.presentation.model
+package com.hrishi.scribbledash.home.presentation.model
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes

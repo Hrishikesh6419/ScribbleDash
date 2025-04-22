@@ -32,8 +32,6 @@ import com.hrishi.scribbledash.designsystem.backgroundGradient
 import com.hrishi.scribbledash.designsystem.onBackgroundVariant
 import com.hrishi.scribbledash.designsystem.spacing
 import com.hrishi.scribbledash.designsystem.success
-import com.hrishi.scribbledash.home.presentation.components.BottomBar
-import com.hrishi.scribbledash.home.presentation.components.BottomBarTab
 import com.hrishi.ui.ObserveAsEvents
 import com.scribbledash.home.core.R
 import com.scribbledash.presentation.ui.R.string
@@ -43,7 +41,6 @@ import org.koin.androidx.compose.koinViewModel
 fun HomeScreenRoot(
     modifier: Modifier = Modifier,
     viewModel: HomeViewModel = koinViewModel(),
-    onTabSelected: (BottomBarTab) -> Unit,
     onNavigateToOneRoundWonderScreen: () -> Unit
 ) {
     ObserveAsEvents(viewModel.events) { event ->
@@ -54,7 +51,6 @@ fun HomeScreenRoot(
 
     HomeScreen(
         modifier = modifier,
-        onTabSelected = onTabSelected,
         onAction = viewModel::onAction
     )
 }
@@ -62,7 +58,6 @@ fun HomeScreenRoot(
 @Composable
 private fun HomeScreen(
     modifier: Modifier = Modifier,
-    onTabSelected: (BottomBarTab) -> Unit,
     onAction: (HomeAction) -> Unit
 ) {
     Scaffold(
@@ -70,12 +65,6 @@ private fun HomeScreen(
             .background(brush = MaterialTheme.colorScheme.backgroundGradient)
             .statusBarsPadding(),
         topBar = { ScribbleDashTopBar(title = stringResource(R.string.scribbledash)) },
-        bottomBar = {
-            BottomBar(
-                selectedTab = BottomBarTab.HOME,
-                onTabSelected = onTabSelected
-            )
-        },
         containerColor = Color.Transparent
     ) { paddingValues ->
         Column(
@@ -168,7 +157,6 @@ private fun GameModeItem(
 private fun PreviewHomeScreen() {
     ScribbleDashTheme {
         HomeScreen(
-            onTabSelected = {},
             onAction = {}
         )
     }

@@ -1,4 +1,4 @@
-package com.hrishi.scribbledash.home.presentation.future
+package com.hrishi.scribbledash.home.presentation.left
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -13,34 +13,19 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.hrishi.scribbledash.designsystem.ScribbleDashTheme
 import com.hrishi.scribbledash.designsystem.backgroundGradient
-import com.hrishi.scribbledash.home.presentation.components.BottomBar
-import com.hrishi.scribbledash.home.presentation.components.BottomBarTab
 
 @Composable
 fun FutureScreenRoot(
-    onTabSelected: (BottomBarTab) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    FutureScreen(
-        onTabSelected = onTabSelected,
-        modifier = modifier
-    )
+    FutureScreen(modifier = modifier)
 }
 
 @Composable
 private fun FutureScreen(
-    onTabSelected: (BottomBarTab) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    Scaffold(
-        modifier = modifier,
-        bottomBar = {
-            BottomBar(
-                selectedTab = BottomBarTab.FUTURE,
-                onTabSelected = onTabSelected
-            )
-        }
-    ) { paddingValues ->
+    Scaffold(modifier = modifier) { paddingValues ->
         Box(
             modifier = Modifier
                 .fillMaxSize()
@@ -57,8 +42,6 @@ private fun FutureScreen(
 @Composable
 private fun PreviewFutureScreen() {
     ScribbleDashTheme {
-        FutureScreen(
-            onTabSelected = {}
-        )
+        FutureScreen()
     }
 }

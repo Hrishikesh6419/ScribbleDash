@@ -1,8 +1,8 @@
-package com.hrishi.scribbledash.presentation.drawing
+package com.hrishi.scribbledash.home.presentation.drawing
 
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
-import com.hrishi.scribbledash.presentation.model.DifficultySettingUi
+import com.hrishi.scribbledash.home.presentation.model.DifficultySettingUi
 
 data class PathData(
     val id: String,

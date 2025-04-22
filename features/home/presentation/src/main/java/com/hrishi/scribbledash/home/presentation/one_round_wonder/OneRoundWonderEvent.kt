@@ -1,4 +1,4 @@
-package com.hrishi.scribbledash.presentation.one_round_wonder
+package com.hrishi.scribbledash.home.presentation.one_round_wonder
 
 import com.hrishi.scribbledash.domain.model.common.DifficultySetting
 

@@ -1,12 +1,11 @@
-package com.hrishi.scribbledash.presentation.drawing
+package com.hrishi.scribbledash.home.presentation.drawing
 
 import androidx.compose.ui.geometry.Offset
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.toRoute
-import com.hrishi.scribbledash.presentation.model.DifficultySettingUi
-import com.hrishi.scribbledash.presentation.navigation.OneRoundWonderDrawingScreenRoute
+import com.hrishi.scribbledash.home.presentation.navigation.OneRoundWonderDrawingScreenRoute
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -29,7 +28,9 @@ class OneRoundDrawingViewModel(
     init {
         _uiState.update {
             it.copy(
-                difficultySetting = DifficultySettingUi.fromDomain(route.difficultySetting)
+                difficultySetting = com.hrishi.scribbledash.home.presentation.model.DifficultySettingUi.fromDomain(
+                    route.difficultySetting
+                )
             )
         }
     }
