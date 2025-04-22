@@ -44,3 +44,11 @@ val ChallengingIcon: ImageVector
 val MasterIcon: ImageVector
     @Composable
     get() = ImageVector.vectorResource(R.drawable.ic_master)
+
+val BoltIcon: ImageVector
+    @Composable
+    get() = ImageVector.vectorResource(R.drawable.ic_bolt)
+
+val HourGlassIcon: ImageVector
+    @Composable
+    get() = ImageVector.vectorResource(R.drawable.ic_hourglass)
