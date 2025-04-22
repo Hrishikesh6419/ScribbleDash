@@ -19,6 +19,7 @@ data class ComponentDimensions(
     val bottomBarIconSize: Dp = 26.dp,
     val iconSize: Dp = 32.dp,
     val smallShadow: Dp = 2.dp,
+    val mediumShadow: Dp = 4.dp,
     val difficultIconSize: Dp = 88.dp,
     val bottomBarHeight: Dp = 88.dp,
     val gameModeTileHeight: Dp = 80.dp,

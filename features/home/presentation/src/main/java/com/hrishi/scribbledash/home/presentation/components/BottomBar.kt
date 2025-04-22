@@ -9,6 +9,8 @@ import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.hrishi.scribbledash.designsystem.ChartIcon
 import com.hrishi.scribbledash.designsystem.HomeIcon
@@ -21,6 +23,7 @@ enum class BottomBarTab {
 data class BottomNavItem(
     val tab: BottomBarTab,
     val icon: ImageVector,
+    val iconColor: Color,
     val contentDescription: String
 )
 
@@ -34,17 +37,20 @@ fun BottomBar(
         BottomNavItem(
             tab = BottomBarTab.STATISTICS,
             icon = ChartIcon,
+            iconColor = MaterialTheme.colorScheme.tertiaryContainer,
             contentDescription = "Statistics"
         ),
         BottomNavItem(
             tab = BottomBarTab.HOME,
             icon = HomeIcon,
+            iconColor = MaterialTheme.colorScheme.primary,
             contentDescription = "Home"
         )
     )
 
     NavigationBar(
-        modifier = modifier.heightIn(max = MaterialTheme.componentDimensions.bottomBarHeight),
+        modifier = modifier.heightIn(max = MaterialTheme.componentDimensions.bottomBarHeight)
+            .shadow(MaterialTheme.componentDimensions.mediumShadow),
         containerColor = MaterialTheme.colorScheme.surfaceContainerHigh
     ) {
         items.forEach { item ->
@@ -59,7 +65,7 @@ fun BottomBar(
                 selected = selectedTab == item.tab,
                 onClick = { onTabSelected(item.tab) },
                 colors = NavigationBarItemDefaults.colors(
-                    selectedIconColor = MaterialTheme.colorScheme.primary,
+                    selectedIconColor = item.iconColor,
                     unselectedIconColor = MaterialTheme.colorScheme.surfaceContainerLowest,
                     indicatorColor = MaterialTheme.colorScheme.surfaceContainerHigh
                 )
