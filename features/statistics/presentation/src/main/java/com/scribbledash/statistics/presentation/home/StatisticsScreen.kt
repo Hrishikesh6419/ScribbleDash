@@ -1,4 +1,4 @@
-package com.hrishi.scribbledash.home.presentation.left
+package com.scribbledash.statistics.presentation.home
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -15,14 +15,14 @@ import com.hrishi.scribbledash.designsystem.ScribbleDashTheme
 import com.hrishi.scribbledash.designsystem.backgroundGradient
 
 @Composable
-fun FutureScreenRoot(
+fun StatisticsScreenRoot(
     modifier: Modifier = Modifier
 ) {
-    FutureScreen(modifier = modifier)
+    StatisticsScreen(modifier = modifier)
 }
 
 @Composable
-private fun FutureScreen(
+private fun StatisticsScreen(
     modifier: Modifier = Modifier
 ) {
     Scaffold(modifier = modifier) { paddingValues ->
@@ -33,15 +33,15 @@ private fun FutureScreen(
                 .padding(paddingValues),
             contentAlignment = Alignment.Center
         ) {
-            Text("Future Destination - Coming in Milestone 2")
+            Text("Statistics Destination - Coming in Milestone 2")
         }
     }
 }
 
 @Preview
 @Composable
-private fun PreviewFutureScreen() {
+private fun PreviewStatisticsScreen() {
     ScribbleDashTheme {
-        FutureScreen()
+        StatisticsScreen()
     }
 }

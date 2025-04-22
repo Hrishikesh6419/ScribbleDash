@@ -15,7 +15,7 @@ import com.hrishi.scribbledash.designsystem.HomeIcon
 import com.hrishi.scribbledash.designsystem.componentDimensions
 
 enum class BottomBarTab {
-    FUTURE, HOME
+    STATISTICS, HOME
 }
 
 data class BottomNavItem(
@@ -32,9 +32,9 @@ fun BottomBar(
 ) {
     val items = listOf(
         BottomNavItem(
-            tab = BottomBarTab.FUTURE,
+            tab = BottomBarTab.STATISTICS,
             icon = ChartIcon,
-            contentDescription = "Future Destination"
+            contentDescription = "Statistics"
         ),
         BottomNavItem(
             tab = BottomBarTab.HOME,

@@ -12,12 +12,6 @@ data object HomeBaseRoute
 data object HomeScreenRoute
 
 @Serializable
-data object FutureDestinationBaseRoute
-
-@Serializable
-data object FutureDestinationRoute
-
-@Serializable
 data object OneRoundWonderScreenRoute
 
 @Serializable
@@ -25,9 +19,6 @@ data class OneRoundWonderDrawingScreenRoute(val difficultySetting: DifficultySet
 
 fun NavController.navigateToHomeScreen(navOptions: NavOptionsBuilder.() -> Unit = {}) =
     navigate(HomeScreenRoute, navOptions)
-
-fun NavController.navigateToFutureDestination(navOptions: NavOptionsBuilder.() -> Unit = {}) =
-    navigate(FutureDestinationRoute, navOptions)
 
 fun NavController.navigateToOneRoundWonderScreenRoute(
     navOptions: NavOptionsBuilder.() -> Unit = {}

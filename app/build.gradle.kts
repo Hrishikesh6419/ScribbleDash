@@ -46,4 +46,7 @@ dependencies {
     implementation(projects.features.home.data)
     implementation(projects.features.home.domain)
     implementation(projects.features.home.presentation)
+    implementation(projects.features.statistics.data)
+    implementation(projects.features.statistics.domain)
+    implementation(projects.features.statistics.presentation)
 }

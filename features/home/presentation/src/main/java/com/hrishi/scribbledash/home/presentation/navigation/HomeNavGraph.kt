@@ -6,7 +6,6 @@ import androidx.navigation.navigation
 import com.hrishi.scribbledash.domain.model.common.DifficultySetting
 import com.hrishi.scribbledash.home.presentation.drawing.OneRoundWonderDrawingScreenRoot
 import com.hrishi.scribbledash.home.presentation.home.HomeScreenRoot
-import com.hrishi.scribbledash.home.presentation.left.FutureScreenRoot
 import com.hrishi.scribbledash.home.presentation.one_round_wonder.OneRoundWonderScreenRoot
 import com.hrishi.ui.animation.NavigationAnimations
 
@@ -50,21 +49,6 @@ fun NavGraphBuilder.homeNavGraph(
             OneRoundWonderDrawingScreenRoot(
                 onNavigateBack = onNavigateBack
             )
-        }
-    }
-}
-
-fun NavGraphBuilder.futureNavGraph() {
-    navigation<FutureDestinationBaseRoute>(
-        startDestination = FutureDestinationRoute
-    ) {
-        composable<FutureDestinationRoute>(
-            enterTransition = NavigationAnimations.enterFromRight,
-            exitTransition = NavigationAnimations.exitToRight,
-            popEnterTransition = NavigationAnimations.enterFromLeft,
-            popExitTransition = NavigationAnimations.exitToLeft
-        ) {
-            FutureScreenRoot()
         }
     }
 }

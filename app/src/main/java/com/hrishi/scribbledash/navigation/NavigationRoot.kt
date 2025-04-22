@@ -14,15 +14,15 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.hrishi.scribbledash.home.presentation.components.BottomBar
 import com.hrishi.scribbledash.home.presentation.components.BottomBarTab
-import com.hrishi.scribbledash.home.presentation.navigation.FutureDestinationRoute
 import com.hrishi.scribbledash.home.presentation.navigation.HomeBaseRoute
 import com.hrishi.scribbledash.home.presentation.navigation.HomeScreenRoute
-import com.hrishi.scribbledash.home.presentation.navigation.futureNavGraph
 import com.hrishi.scribbledash.home.presentation.navigation.homeNavGraph
-import com.hrishi.scribbledash.home.presentation.navigation.navigateToFutureDestination
 import com.hrishi.scribbledash.home.presentation.navigation.navigateToHomeScreen
 import com.hrishi.scribbledash.home.presentation.navigation.navigateToOneRoundWonderDrawingScreenRoute
 import com.hrishi.scribbledash.home.presentation.navigation.navigateToOneRoundWonderScreenRoute
+import com.scribbledash.statistics.presentation.navigation.StatisticsHomeRoute
+import com.scribbledash.statistics.presentation.navigation.navigateToStatisticsHomeRoute
+import com.scribbledash.statistics.presentation.navigation.statisticsNavGraph
 
 @Composable
 fun NavigationRoot(
@@ -33,7 +33,7 @@ fun NavigationRoot(
 
     val topLevelDestinations = setOf(
         HomeScreenRoute::class,
-        FutureDestinationRoute::class,
+        StatisticsHomeRoute::class,
     )
 
     val isInTopLevelDestination = currentDestination?.hierarchy?.any { destination ->
@@ -42,7 +42,7 @@ fun NavigationRoot(
 
     val selectedTab = when {
         currentDestination?.hierarchy?.any { it.hasRoute(HomeScreenRoute::class) } == true -> BottomBarTab.HOME
-        currentDestination?.hierarchy?.any { it.hasRoute(FutureDestinationRoute::class) } == true -> BottomBarTab.FUTURE
+        currentDestination?.hierarchy?.any { it.hasRoute(StatisticsHomeRoute::class) } == true -> BottomBarTab.STATISTICS
         else -> BottomBarTab.HOME
     }
 
@@ -76,7 +76,7 @@ fun NavigationRoot(
                     navController.navigateUp()
                 }
             )
-            futureNavGraph()
+            statisticsNavGraph()
         }
     }
 }
@@ -94,7 +94,7 @@ private fun handleTabNavigation(
             restoreState = true
         }
 
-        BottomBarTab.FUTURE -> navController.navigateToFutureDestination {
+        BottomBarTab.STATISTICS -> navController.navigateToStatisticsHomeRoute {
             popUpTo(navController.graph.findStartDestination().id) {
                 saveState = true
             }
