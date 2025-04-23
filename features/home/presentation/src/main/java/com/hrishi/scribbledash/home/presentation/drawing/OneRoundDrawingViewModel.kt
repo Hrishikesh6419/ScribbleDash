@@ -81,7 +81,7 @@ class OneRoundDrawingViewModel(
         _uiState.update { state ->
             val newPaths = state.paths + currentPath
 
-            val newUndoablePaths = (state.undoablePaths + currentPath).takeLast(5)
+            val newUndoablePaths = state.undoablePaths + currentPath
 
             state.copy(
                 currentPath = null,
@@ -128,7 +128,7 @@ class OneRoundDrawingViewModel(
 
             val newPaths = state.paths + pathToRedo
 
-            val newUndoablePaths = (state.undoablePaths + pathToRedo).takeLast(5)
+            val newUndoablePaths = state.undoablePaths + pathToRedo
 
             state.copy(
                 paths = newPaths,
