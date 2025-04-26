@@ -18,5 +18,11 @@ data class OneRoundDrawingViewState(
     val redoPaths: List<PathData> = emptyList(),
     val isUndoEnabled: Boolean = false,
     val isRedoEnabled: Boolean = false,
-    val isClearCanvasEnabled: Boolean = false
+    val isClearCanvasEnabled: Boolean = false,
+    val drawMode: DrawMode = DrawMode.Preview(3)
 )
+
+sealed class DrawMode {
+    data class Preview(val remainingSecs: Int) : DrawMode()
+    data object Draw : DrawMode()
+}

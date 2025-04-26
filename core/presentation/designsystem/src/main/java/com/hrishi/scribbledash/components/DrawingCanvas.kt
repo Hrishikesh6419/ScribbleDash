@@ -49,6 +49,7 @@ fun DrawingCanvas(
     cornerShape: RoundedCornerShape = MaterialTheme.appShapes.extraLarge3,
     innerShape: RoundedCornerShape = MaterialTheme.appShapes.extraLarge2,
     innerPadding: Dp = MaterialTheme.spacing.smallMedium,
+    isInteractionEnabled: Boolean = true,
     onDrawStart: () -> Unit = {},
     onDraw: (Offset) -> Unit = {},
     onDrawEnd: () -> Unit = {}
@@ -79,14 +80,20 @@ fun DrawingCanvas(
                 modifier = Modifier
                     .matchParentSize()
                     .clip(innerShape)
-                    .pointerInput(true) {
-                        detectDragGestures(
-                            onDragStart = { onDrawStart() },
-                            onDragEnd = { onDrawEnd() },
-                            onDrag = { change, _ -> onDraw(change.position) },
-                            onDragCancel = { onDrawEnd() }
-                        )
-                    }
+                    .then(
+                        if (isInteractionEnabled) {
+                            Modifier.pointerInput(true) {
+                                detectDragGestures(
+                                    onDragStart = { onDrawStart() },
+                                    onDragEnd = { onDrawEnd() },
+                                    onDrag = { change, _ -> onDraw(change.position) },
+                                    onDragCancel = { onDrawEnd() }
+                                )
+                            }
+                        } else {
+                            Modifier
+                        }
+                    )
             ) {
                 if (showGrid) {
                     drawGridLines(gridColor, gridLineWidth)

@@ -6,6 +6,11 @@
     <string name="difficulty_master">Master</string>
     <string name="time_to_draw">Time to draw!</string>
     <string name="clear_canvas">CLEAR CANVAS!</string>
+    <string name="example">Example</string>
+    <string name="your_drawing">Your Drawing</string>
+    <string name="ready_set">Ready, set…</string>
+    <string name="seconds_left">%s seconds left</string>
+    <string name="done">DONE!</string>
     <string name="undo">Undo</string>
     <string name="redo">Redo</string>
 </resources>

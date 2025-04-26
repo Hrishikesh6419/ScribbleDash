@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.navigation.toRoute
 import com.hrishi.scribbledash.home.presentation.navigation.OneRoundWonderDrawingScreenRoute
 import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.receiveAsFlow
@@ -26,6 +27,11 @@ class OneRoundDrawingViewModel(
     private val route: OneRoundWonderDrawingScreenRoute = savedStateHandle.toRoute()
 
     init {
+        setupInitialState()
+        startPreviewCountdownIfNeeded()
+    }
+
+    private fun setupInitialState() {
         _uiState.update {
             it.copy(
                 difficultySetting = com.hrishi.scribbledash.home.presentation.model.DifficultySettingUi.fromDomain(
@@ -35,14 +41,44 @@ class OneRoundDrawingViewModel(
         }
     }
 
+    private fun startPreviewCountdownIfNeeded() {
+        viewModelScope.launch {
+            val drawMode = _uiState.value.drawMode
+            if (drawMode is DrawMode.Preview) {
+                countdownAndSwitchToDrawMode(drawMode.remainingSecs)
+            }
+        }
+    }
+
+    private suspend fun countdownAndSwitchToDrawMode(startSeconds: Int) {
+        var remainingSeconds = startSeconds
+        while (remainingSeconds > 0) {
+            delay(1000)
+            remainingSeconds -= 1
+            updateRemainingTime(remainingSeconds)
+        }
+        switchToDrawMode()
+    }
+
+    private fun updateRemainingTime(remainingSeconds: Int) {
+        _uiState.update {
+            it.copy(
+                drawMode = DrawMode.Preview(remainingSeconds)
+            )
+        }
+    }
+
+    private fun switchToDrawMode() {
+        _uiState.update {
+            it.copy(
+                drawMode = DrawMode.Draw
+            )
+        }
+    }
+
     fun onAction(action: OneRoundDrawingAction) {
         when (action) {
-            is OneRoundDrawingAction.OnCloseClick -> {
-                viewModelScope.launch {
-                    _eventChannel.send(OneRoundDrawingEvent.NavigateBack)
-                }
-            }
-
+            is OneRoundDrawingAction.OnCloseClick -> navigateBack()
             is OneRoundDrawingAction.OnClearCanvasClicked -> onClearCanvas()
             is OneRoundDrawingAction.OnRedoClicked -> onRedo()
             is OneRoundDrawingAction.OnUndoClicked -> onUndo()
@@ -52,17 +88,27 @@ class OneRoundDrawingViewModel(
         }
     }
 
+    private fun navigateBack() {
+        viewModelScope.launch {
+            _eventChannel.send(OneRoundDrawingEvent.NavigateBack)
+        }
+    }
+
     private fun onNewPathStart() {
         _uiState.update { state ->
             state.copy(
-                currentPath = PathData(
-                    id = System.currentTimeMillis().toString(),
-                    path = emptyList()
-                ),
+                currentPath = createNewPath(),
                 redoPaths = emptyList(),
                 isRedoEnabled = false
             )
         }
+    }
+
+    private fun createNewPath(): PathData {
+        return PathData(
+            id = System.currentTimeMillis().toString(),
+            path = emptyList()
+        )
     }
 
     private fun onDraw(offset: Offset) {
@@ -80,7 +126,6 @@ class OneRoundDrawingViewModel(
         val currentPath = _uiState.value.currentPath ?: return
         _uiState.update { state ->
             val newPaths = state.paths + currentPath
-
             val newUndoablePaths = state.undoablePaths + currentPath
 
             state.copy(
@@ -88,9 +133,9 @@ class OneRoundDrawingViewModel(
                 paths = newPaths,
                 undoablePaths = newUndoablePaths,
                 redoPaths = emptyList(),
-                isUndoEnabled = newUndoablePaths.isNotEmpty(),
+                isUndoEnabled = true,
                 isRedoEnabled = false,
-                isClearCanvasEnabled = newPaths.isNotEmpty()
+                isClearCanvasEnabled = true
             )
         }
     }
@@ -100,12 +145,9 @@ class OneRoundDrawingViewModel(
             if (state.undoablePaths.isEmpty()) return@update state
 
             val pathToUndo = state.undoablePaths.last()
-
             val newUndoablePaths = state.undoablePaths.dropLast(1)
-
             val newPaths = state.paths.filter { it.id != pathToUndo.id }
-
-            val newRedoPaths = (state.redoPaths + pathToUndo).takeLast(5)
+            val newRedoPaths = (state.redoPaths + pathToUndo).takeLast(MAX_REDO_PATHS)
 
             state.copy(
                 paths = newPaths,
@@ -123,11 +165,8 @@ class OneRoundDrawingViewModel(
             if (state.redoPaths.isEmpty()) return@update state
 
             val pathToRedo = state.redoPaths.last()
-
             val newRedoPaths = state.redoPaths.dropLast(1)
-
             val newPaths = state.paths + pathToRedo
-
             val newUndoablePaths = state.undoablePaths + pathToRedo
 
             state.copy(
@@ -152,5 +191,9 @@ class OneRoundDrawingViewModel(
                 isClearCanvasEnabled = false
             )
         }
+    }
+
+    companion object {
+        private const val MAX_REDO_PATHS = 5
     }
 }
